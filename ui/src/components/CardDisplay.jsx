@@ -119,7 +119,12 @@ const CardDisplay = ({ handleClick, handleNFTMint }) => {
       (userCards?.length > 0 && userNfts?.length > 0)) &&
       setMyCards(getUserCards({ userCards, userOffers, userNfts }));
     userCards?.length === 0 && userNfts?.length === 0 && setMyCardLoader(false);
-    setSecondaryCards(userOffers);
+    setSecondaryCards(
+      userOffers.map((offer) => ({
+        sellingPrice: offer.want.Price.value,
+        ...offer.give.Asset.value[0],
+      })),
+    );
     setSecondaryLoader(false);
   }, [userOffers, userNfts, pendingOffers, userCards]);
   switch (activeTab) {

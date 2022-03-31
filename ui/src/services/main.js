@@ -77,7 +77,6 @@ const Main = (
       Obj;
     delete Obj.sellerSeat;
     delete Obj.sellingPrice;
-    delete Obj.boughtFor;
     delete Obj.BuyerExclusiveInvitation;
     const result = await makeMatchingInvitation({
       cardPurse,
